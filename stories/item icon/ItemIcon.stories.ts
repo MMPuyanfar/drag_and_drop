@@ -20,9 +20,3 @@ export const Blue: Story = {
     fillColor: "#0000F0",
   },
 };
-
-export const Large: Story = {
-  args: {
-    size: 300,
-  },
-};

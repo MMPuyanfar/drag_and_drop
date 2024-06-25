@@ -1,29 +1,35 @@
-import React from "react";
+import Image from "next/image";
+import { useState } from "react";
 import { ItemIcon } from "../item icon/ItemIcon";
 import "./item.css";
-import Image from "next/image";
 import removeIconPNG from "./remove.png";
 
 interface ItemPropsType {
-  showRemoveIcon?: boolean;
-  // removeIconURL?: string;
   itemColor?: string;
-  itemSize?: number;
   itemLabel?: string;
-  handleRemove?: () => void;
+  id: number;
 }
 
 export function Item({
-  showRemoveIcon = false,
-  // removeIconURL = "./remove.png",
   itemColor = "gray",
-  itemSize = 90,
   itemLabel = "icon",
-  // handleRemove
+  id,
 }: ItemPropsType) {
+  const [showRemoveIcon, setShowremoveIcon] =
+    useState(false);
+
+  const handleClick = () => {
+    setShowremoveIcon(!showRemoveIcon);
+    console.log(showRemoveIcon);
+  };
+
   return (
-    <div className="size item">
-      <ItemIcon fillColor={itemColor} size={itemSize} />
+    <div
+      className="item"
+      onClick={handleClick}
+      draggable
+    >
+      <ItemIcon fillColor={itemColor} />
       <span className="label">{itemLabel}</span>
       {showRemoveIcon && (
         <Image
@@ -32,21 +38,10 @@ export function Item({
           alt="remove"
           className="remove"
           // onClick={handleRemove}
-          width={0.2 * itemSize}
-          height={0.2 * itemSize}
+          width={20}
+          height={20}
         />
       )}
-      <style jsx>
-        {`
-          .size {
-            width: ${itemSize * 1.1}px;
-            height: ${itemSize * 1.1}px;
-          }
-          .label {
-            font-size: ${0.2 * itemSize}px;
-          }
-        `}
-      </style>
     </div>
   );
 }

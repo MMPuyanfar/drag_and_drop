@@ -1,32 +1,26 @@
-import { Item } from "../item/Item";
-import './container.css'
+import ContainerCell from "../container cell/ContainerCell";
+import "./container.css";
 
 export interface ItemType {
   id: number;
   itemLabel: string;
-  showRemoveIcon?: boolean;
-  itemColor?: string;
-  itemSize?: number;
-  handleRemove?: () => void;
+  itemColor: string;
 }
+export type CellsType = (ItemType|null)[];
 
 interface ContainerPropsType {
-  itemsList: ItemType[];
+  cells: CellsType
 }
 
-
 export default function Container({
-  itemsList,
+  cells
 }: ContainerPropsType) {
+
   return (
     <div className="container">
-      {itemsList.map((item) => (
-        <Item
-          itemLabel={item.itemLabel}
-          itemColor={item.itemColor}
-          key={item.id}
-        />
-      ))}
+        {cells.map((cell, index) => (
+          <ContainerCell key={index} position={index} itemObj={cell} />
+        ))}
     </div>
   );
 }
