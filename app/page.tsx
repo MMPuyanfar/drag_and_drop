@@ -1,6 +1,6 @@
 "use client";
 
-import App from "@/stories/app/app";
+import {App} from "@/stories/app/App";
 
 export default function DragAndDropApp() {
   return (
