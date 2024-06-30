@@ -11,11 +11,20 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultItem: Story = {
   args: {
+    id: 1,
+    handleRemove(e) {
+      console.log(e);
+    },
   },
 };
 
-export const WithRemove: Story = {
+export const BlueItem: Story = {
   args: {
-    showRemoveIcon: true,
+    itemColor: 'blue',
+    itemLabel: 'item',
+    id: 2,
+    handleRemove(e) {
+      console.log(e);
+    },
   },
 };

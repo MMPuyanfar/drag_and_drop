@@ -1,8 +1,17 @@
 .cell {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
+  width: 90px;
+  height: 90px;
+  margin: 2px;
   border-radius: 30px;
+  border: 1px solid gray;
   text-align: center;
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-gray {
+  background-color: gray;
 }

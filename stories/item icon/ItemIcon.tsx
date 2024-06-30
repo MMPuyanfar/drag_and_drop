@@ -9,8 +9,8 @@ export function ItemIcon({
 }: ItemIconPropsType) {
   return (
     <svg
-      width='80px'
-      height='80px'
+      width='70px'
+      height='70px'
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,15 +1,9 @@
 "use client";
 
-import Container from "@/stories/container/Container";
-import { useCellsStore } from "./useCellsStore";
-
+import App from "@/stories/app/app";
 
 export default function DragAndDropApp() {
-  const cells = useCellsStore((state) => state.cells);
-  const updateCells = useCellsStore((state) => state.updateCells);
-
-  
   return (
-      <Container cells={cells} />
+    <App />
   );
 }
